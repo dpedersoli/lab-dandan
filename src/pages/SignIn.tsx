@@ -1,24 +1,22 @@
-import { FormEvent, useState } from 'react'
-
-import axios from 'axios'
-
 import { Checkbox } from "@radix-ui/react-checkbox";
+import { FormEvent, useState } from "react";
+import axios from 'axios'
 import { Envelope, Lock } from "phosphor-react";
 import { Button } from "../components/Button";
 import { Heading } from "../components/Heading";
 import { TextInput } from "../components/TextInput";
-import { Text } from '../components/Text';
+import { Text } from "../components/Text";
 import { Logo } from "../Logo";
 
 export function SignIn() {
   const [isUserSignedIn, setIsUserSignedIn] = useState(false)
 
-  function handleSignIn(event: FormEvent) {
-    event.preventDefault();
+  async function handleSignIn(event: FormEvent) {
+    event.preventDefault()
 
-    axios.post('/sessions', {
-      email: 'daniel@email.com',
-      password: '123456',
+    await axios.post('/sessions', {
+      email: 'diego@rocketseat.com.br',
+      password: '12345678',
     })
 
     setIsUserSignedIn(true)
@@ -26,30 +24,29 @@ export function SignIn() {
 
   return (
     <div className="w-screen h-screen bg-gray-900 flex flex-col items-center justify-center text-gray-100">
-
       <header className="flex flex-col items-center">
         <Logo />
+
         <Heading size="lg" className="mt-4">
-          Dandan's Lab
+          Ignite Lab
         </Heading>
 
         <Text size="lg" className="text-gray-400 mt-1">
-          Faça Login e comece a usar
+          Faça login e comece a usar!
         </Text>
       </header>
 
-      <form onSubmit={handleSignIn} className="flex flex-col gap-4 items-stretch w-full max-w-[400px] mt-10">
-        {isUserSignedIn && <Text>Login realizado!</Text>}
+      <form onSubmit={handleSignIn} className="flex flex-col gap-4 items-stretch w-full max-w-sm mt-10">
+        { isUserSignedIn && <Text>Login realizado!</Text> }
 
         <label htmlFor="email" className="flex flex-col gap-3">
-          <Text className="font-semibold" >Endereço de E-mail</Text>
+          <Text className="font-semibold">Endereço de e-mail</Text>
           <TextInput.Root>
             <TextInput.Icon>
               <Envelope />
             </TextInput.Icon>
 
             <TextInput.Input type="email" id="email" placeholder="Digite seu e-mail" />
-
           </TextInput.Root>
         </label>
 
@@ -60,8 +57,7 @@ export function SignIn() {
               <Lock />
             </TextInput.Icon>
 
-            <TextInput.Input type="password" id="password" placeholder='******' />
-
+            <TextInput.Input type="password" id="password" placeholder="******" />
           </TextInput.Root>
         </label>
 
@@ -81,7 +77,6 @@ export function SignIn() {
           <a href="" className="text-gray-400 underline hover:text-gray-200">Não possui conta? Crie uma agora!</a>
         </Text>
       </footer>
-
     </div>
   )
 }

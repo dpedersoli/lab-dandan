@@ -1,4 +1,4 @@
-name: Deploy docs
+name: Deploy Storybook
 
 on:
   push:
@@ -8,6 +8,7 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -23,9 +24,7 @@ jobs:
       - name: Build Storybook
         run: npm run build-storybook
 
-      - name: Deploy storybook
-        working-directory: ./packages/docs
+      - name: Deploy Storybook
         run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
-          

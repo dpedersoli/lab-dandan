@@ -5,19 +5,17 @@ export default {
   title: 'Components/Text',
   component: Text,
   args: {
-    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing',
-    size: 'md'
+    children: 'Lorem ipsum.',
+    size: 'md',
   },
-  //isso é inútil hoje já que na nova atualização do "Storybook" ele já traz essa funcionalidade sem precisar diso
   argTypes: {
     size: {
       options: ['sm', 'md', 'lg'],
-      contrle: {
+      control: {
         type: 'inline-radio'
       }
     }
   }
-  //isso é inútil hoje já que na nova atualização do "Storybook" ele já traz essa funcionalidade sem precisar diso
 } as Meta<TextProps>
 
 export const Default: StoryObj<TextProps> = {}
@@ -36,20 +34,20 @@ export const Large: StoryObj<TextProps> = {
 
 export const CustomComponent: StoryObj<TextProps> = {
   args: {
-    asChild: true, 
+    asChild: true,
     children: (
-      <p>Text w/ 'p' tag</p>
-    ) 
+      <p>Text with P tag</p>
+    )
   },
   argTypes: {
     children: {
       table: {
-        disable: true
+        disable: true,
       }
     },
     asChild: {
       table: {
-        disable: true
+        disable: true,
       }
     }
   }

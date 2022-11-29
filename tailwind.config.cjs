@@ -12,6 +12,7 @@ module.exports = {
       xl: 24,
       '2xl': 32,
     },
+
     colors: {
       transparent: 'transparent',
 
@@ -23,17 +24,17 @@ module.exports = {
         800: '#202024',
         400: '#7c7c8a',
         200: '#c4c4cc',
-        100: '#e1e1e6'
+        100: '#e1e1e6',
       },
 
       cyan: {
         500: '#81d8f7',
         300: '#9BE1FB'
-      }
+      },
     },
     extend: {
       fontFamily: {
-        sans: 'Inter, sans-serif',
+        sans: 'Inter, sans-serif'
       },
     },
   },

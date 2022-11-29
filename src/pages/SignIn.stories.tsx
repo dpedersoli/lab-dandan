@@ -13,12 +13,12 @@ export default {
     msw: {
       handlers: [
         rest.post('/sessions', (req, res, ctx) => {
-          return res(ctx.json({ //poderia passar só 'res()' que já daria status 200
+          return res(ctx.json({
             message: 'Login realizado!'
           }))
         })
-      ]
-    }
+      ],
+    },
   }
 } as Meta
 
@@ -26,13 +26,13 @@ export const Default: StoryObj = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
 
-    userEvent.type(canvas.getByPlaceholderText('Digite seu e-mail'), 'daniel@email.com');
-    userEvent.type(canvas.getByPlaceholderText('******'), '123456')
+    userEvent.type(canvas.getByPlaceholderText('Digite seu e-mail'), 'diego@rocketseat.com.br')
+    userEvent.type(canvas.getByPlaceholderText('******'), '12345678')
 
     userEvent.click(canvas.getByRole('button'))
 
     await waitFor(() => {
-      expect(canvas.getByText('Login realizado!')).toBeInTheDocument()
+      return expect(canvas.getByText('Login realizado!')).toBeInTheDocument()
     })
   }
 }

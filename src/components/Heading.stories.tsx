@@ -5,13 +5,13 @@ export default {
   title: 'Components/Heading',
   component: Heading,
   args: {
-    children: 'Lorem ipsum',
-    size: 'md'
+    children: 'Lorem ipsum.',
+    size: 'md',
   },
   argTypes: {
     size: {
       options: ['sm', 'md', 'lg'],
-      contrle: {
+      control: {
         type: 'inline-radio'
       }
     }
@@ -36,18 +36,18 @@ export const CustomComponent: StoryObj<HeadingProps> = {
   args: {
     asChild: true,
     children: (
-      <h1>Heading with h1</h1>
+      <h1>Heading with H1</h1>
     )
   },
   argTypes: {
     children: {
       table: {
-        disable: true
+        disable: true,
       }
     },
     asChild: {
       table: {
-        disable: true
+        disable: true,
       }
     }
   }
