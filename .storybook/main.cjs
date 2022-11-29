@@ -17,6 +17,10 @@ module.exports = {
     "storyStoreV7": true,
     "interactionsDebugger": true
   },
+  "staticDirs": [
+    "../public"
+  ], //para acessar o 'msw'
+
   viteFinal: (config, {configType}) => {
     if (configType === "PRODUCTION"){
       config.base = '/dandans-lab/'
