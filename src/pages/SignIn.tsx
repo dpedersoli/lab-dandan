@@ -9,16 +9,13 @@ import { Text } from '../components/Text';
 import { Logo } from "../Logo";
 
 export function SignIn() {
-  //simular o processo de Login -> ocorre quando houver o 'submit' do form (chamei no 'onSubmit' do 'form')
   const [isUserSignedIn, setIsUserSignedIn] = useState(false)
 
   function handleSignIn(event: FormEvent) {
-    event.preventDefault()
+    event.preventDefault();
 
     setIsUserSignedIn(true)
   }
-
-  //
 
   return (
     <div className="w-screen h-screen bg-gray-900 flex flex-col items-center justify-center text-gray-100">
@@ -34,10 +31,8 @@ export function SignIn() {
         </Text>
       </header>
 
-      {/*chamei o 'handleSignIn' aqui na ação de envio do form*/}
       <form onSubmit={handleSignIn} className="flex flex-col gap-4 items-stretch w-full max-w-[400px] mt-10">
-        {/*Se o isUserSignedIn for 'true' ele irá renderizar o componente 'Text' */}
-        {isUserSignedIn && <Text>Login Realizado</Text>}
+        {isUserSignedIn && <Text>Login realizado!</Text>}
 
         <label htmlFor="email" className="flex flex-col gap-3">
           <Text className="font-semibold" >Endereço de E-mail</Text>
@@ -46,19 +41,19 @@ export function SignIn() {
               <Envelope />
             </TextInput.Icon>
 
-            <TextInput.Input type="email" id="email" placeholder="Digite seu e-mail" required />
+            <TextInput.Input type="email" id="email" placeholder="Digite seu e-mail" />
 
           </TextInput.Root>
         </label>
 
-        <label htmlFor="email" className="flex flex-col gap-3">
+        <label htmlFor="password" className="flex flex-col gap-3">
           <Text className="font-semibold">Sua senha</Text>
           <TextInput.Root>
             <TextInput.Icon>
               <Lock />
             </TextInput.Icon>
 
-            <TextInput.Input type="password" id="password" placeholder="******" required />
+            <TextInput.Input type="password" id="password" placeholder='******' />
 
           </TextInput.Root>
         </label>
